@@ -1,7 +1,6 @@
 package com.bookingcab.androidtesting.login_mvvm.domain.repository
 
-import com.bookingcab.androidtesting.login_mvvm.data.models.CityList
-import com.bookingcab.androidtesting.login_mvvm.data.models.ItemDataModel
+import com.bookingcab.androidtesting.login_mvvm.data.models.cityResponse.CityList
 import retrofit2.Response
 
 interface CityItemRepository {

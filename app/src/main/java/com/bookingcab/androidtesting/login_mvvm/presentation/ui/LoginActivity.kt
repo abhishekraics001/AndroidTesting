@@ -7,19 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.ui.AppBarConfiguration
 import com.bookingcab.androidtesting.databinding.LoginPageBinding
-import com.bookingcab.androidtesting.login_mvvm.data.datasource.remote.RetrofitClient
-import com.bookingcab.androidtesting.login_mvvm.data.models.CityList
-import com.bookingcab.androidtesting.login_mvvm.di.AppModule
-import com.bookingcab.androidtesting.login_mvvm.presentation.viewmodel.CityViewModel
+import com.bookingcab.androidtesting.login_mvvm.di.LoginKoinModule
+import com.bookingcab.androidtesting.login_mvvm.presentation.viewmodel.LoginViewModel
 import com.bookingcab.androidtesting.mvvm_architecture.activity.SignupActivity
-import com.bookingcab.mvvm_architecture.framwork.di.LoginAccountDIModules
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.Response
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -27,13 +18,13 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: LoginPageBinding
 
-    private val vm: CityViewModel by viewModel()
+    private val vm: LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
        // WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
 
-        AppModule.inject()
+        LoginKoinModule.inject()
 
         binding = LoginPageBinding.inflate(layoutInflater)
         setSupportActionBar(binding.toolbar)
@@ -75,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    private fun getCityList(userEmail: String, userPassword: String) {
+/*    private fun getCityList(userEmail: String, userPassword: String) {
         GlobalScope.launch(Dispatchers.IO) {
             try {
                     val result = RetrofitClient.apiService.getCityList()
@@ -87,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
                 println("Received city list Error: ${e.message}")
             }
         }
-    }
+    }*/
 
 
 

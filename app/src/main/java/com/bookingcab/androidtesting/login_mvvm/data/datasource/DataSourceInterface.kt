@@ -1,6 +1,6 @@
 package com.bookingcab.androidtesting.login_mvvm.data.datasource
 
-import com.bookingcab.androidtesting.login_mvvm.data.models.CityList
+import com.bookingcab.androidtesting.login_mvvm.data.models.cityResponse.CityList
 import retrofit2.Response
 
 interface DataSourceInterface {

@@ -1,4 +1,4 @@
-package com.bookingcab.androidtesting.login_mvvm.data.models
+package com.bookingcab.androidtesting.login_mvvm.data.models.cityResponse
 
 data class Data(
     val amenities: String,
