@@ -1,9 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bookingcab.androidtesting.user_mvvm.presentation.loginVM.LoginViewModel" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -64,9 +71,7 @@
             app:cardCornerRadius="20dp"
             app:cardBackgroundColor="#949494"
             android:padding="10dp"
-            android:layout_margin="10dp"
-
-            >
+            android:layout_margin="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,40 +90,55 @@
                 android:layout_margin="5dp"
                 android:layout_gravity="center"/>
 
-            <androidx.appcompat.widget.AppCompatEditText
+
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/userLoginEmailID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Email"
+                android:text="@={viewModel.userEmailID}"
+                app:error="@{viewModel.emailError}"
+                android:inputType="textEmailAddress"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawablePadding="10dp"
+                android:textSize="16sp"
+                android:gravity="left|center_horizontal"
+                android:background="@drawable/shapeemail"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textColorHighlight="@color/white"
+                app:errorTextColor="@android:color/holo_red_dark"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="30dp"
                 android:padding="15dp"
-                android:background="@drawable/shapeemail"
-                android:drawableLeft="@drawable/baseline_email_24"
-                android:drawablePadding="10dp"
-                android:hint="Email"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textColorHighlight="@color/white"/>
+             />
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="5dp">
             </Space>
 
-            <androidx.appcompat.widget.AppCompatEditText
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/userLoginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:padding="15dp"
                 android:background="@drawable/shapeemail"
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:drawablePadding="10dp"
+                android:gravity="left|center_horizontal"
                 android:hint="Password"
+                android:padding="15dp"
+                android:text="@={viewModel.userPassword}"
                 android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
                 android:textColorHint="@color/white"
-                android:textColorHighlight="@color/white"/>
+                android:textSize="16sp"
+                app:error="@{viewModel.passwordError}" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -168,7 +188,9 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shapelogin"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="@{() -> viewModel.onLoginButtonClicked()}" />
+            />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/signupButton"
@@ -198,3 +220,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -20,7 +20,7 @@
         android:usesCleartextTraffic="true"
         >
         <activity
-            android:name=".mvvm_architecture.activity.DashBoard"
+            android:name=".mvvm_architecture.presentation.ui.activity.DashBoard"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AndroidTesting">
@@ -33,19 +33,21 @@
 
 
 
-        <activity android:name=".mvvm_architecture.activity.MainActivity">
+        <activity android:name=".mvvm_architecture.presentation.ui.activity.MainActivity">
 
         </activity>
 
 
-        <activity android:name=".login_mvvm.presentation.ui.LoginActivity">
+        <activity android:name=".user_mvvm.presentation.ui.LoginActivity">
 
         </activity>
 
 
-        <activity android:name=".mvvm_architecture.activity.SignupActivity">
+        <activity android:name=".user_mvvm.presentation.ui.SignupActivity">
 
         </activity>
+
+        <activity android:name=".user_mvvm.presentation.profileVM.ProfilePage"/>
 
     </application>
 

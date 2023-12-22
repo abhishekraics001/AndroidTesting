@@ -6,7 +6,7 @@ import com.bookingcab.mvvm_architecture.domain.repository.LoginAccountRepository
 import com.bookingcab.mvvm_architecture.domain.usecase.LoginAccountUseCase
 import com.bookingcab.mvvm_architecture.domain.usecase.LoginAccountUseCaseImpl
 import com.bookingcab.androidtesting.mvvm_architecture.data.datasources.LoginAccountDataSourcesImpl
-import com.bookingcab.mvvm_architecture.ui.LoginAccountViewModel
+import com.bookingcab.androidtesting.mvvm_architecture.presentation.viewmodel.LoginAccountViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
