@@ -1,5 +1,6 @@
 package com.bookingcab.androidtesting.user_mvvm.presentation.loginVM
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,6 +19,7 @@ class LoginViewModel(private val loginUseCase: LoginUseCase): ViewModel() {
 
 
     val userEmailID  =  MutableLiveData<String>()
+
     private val _emailError = MutableLiveData<String?>()
     val emailError: LiveData<String?> get() = _emailError
 
@@ -37,9 +39,13 @@ class LoginViewModel(private val loginUseCase: LoginUseCase): ViewModel() {
     private var _loginResponData = MutableLiveData<LoginData>()
     val loginResponData : MutableLiveData<LoginData> get() =  _loginResponData
 
+    init {
+        userEmailID.value = "test@gmail.com"
+        userPassword.value = "123456"
+    }
 
 
-    fun loginuser(userEmailID: String, userPassword: String){
+  /*  fun loginuser(userEmailID: String, userPassword: String){
             viewModelScope.launch {
                 try {
                     _isloading.value = true
@@ -64,7 +70,7 @@ class LoginViewModel(private val loginUseCase: LoginUseCase): ViewModel() {
             }
     }
 
-
+*/
     fun loginuserWithBody(userEmailID: String, userPassword: String){
         viewModelScope.launch{
             if(isValidCredentials()) {
@@ -120,7 +126,7 @@ class LoginViewModel(private val loginUseCase: LoginUseCase): ViewModel() {
     }
 
 
-    private fun  isValidCredentials() : Boolean {
+    fun  isValidCredentials() : Boolean {
         return if(!validateEmail(userEmailID.value.toString())) {
             _loginResponseStatus.value = "Validation Error: Enter the valid user email id & password"
             false

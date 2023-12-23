@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
        // CityKoinModule.inject()
         LoginKoinModule.inject()
 
-       /* binding = LoginPageBinding.inflate(layoutInflater)
+        binding = LoginPageBinding.inflate(layoutInflater)
         setSupportActionBar(binding.toolbar)
         setContentView(binding.root)
 
@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
             //startActivity(Intent(this, SignupActivity::class.java))
         }
 
-*/
+
 
         binding = DataBindingUtil.setContentView(this, R.layout.login_page)
         binding.viewModel = loginVM

@@ -67,12 +67,12 @@ android {
 
 dependencies {
 
-    //JUnit for Unit Testing
+/*    //JUnit for Unit Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
 
     //Espresso for Instrumentation / UI testing
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'*/
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -107,4 +107,43 @@ dependencies {
 
     //KOIN for DI
     implementation 'io.insert-koin:koin-android:3.2.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    implementation 'androidx.test:runner:1.5.2'
+    implementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    //-----------------------------------------------------------------
+    dependencies {
+        // JUnit for unit testing
+        testImplementation 'junit:junit:4.13.2'
+
+        // MockK for mocking objects
+        testImplementation 'io.mockk:mockk:1.12.0'
+
+        // Kotlin coroutines for testing suspending functions
+        testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2'
+
+        // AndroidX Core testing library
+        testImplementation 'androidx.arch.core:core-testing:2.2.0'
+
+        // LiveData testing
+        testImplementation 'androidx.lifecycle:lifecycle-livedata-core:2.6.2'
+
+        // ViewModel testing
+        testImplementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.2'
+
+        // AndroidX Test Core library
+        androidTestImplementation 'androidx.test:core:1.5.0'
+
+        // AndroidX Test Runner and JUnit
+        androidTestImplementation 'androidx.test:runner:1.5.2'
+       // androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+
+        // Espresso for UI testing (if needed)
+        //androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    }
+
 }

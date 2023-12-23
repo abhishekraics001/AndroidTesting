@@ -21,7 +21,7 @@ import org.koin.dsl.module
 
 object LoginKoinModule {
 
-    private val LoginKoinModules = module {
+     val LoginKoinModules = module {
         single<ApiService> { RetrofitClient.getRetrofitApiService() }
 
         factory { LocalDB }

@@ -10,10 +10,10 @@ object EmailValidator {
 
     fun getEmailErrorMessage(email: String): String? {
         return when {
-            email.isBlank() -> "Email should not be empty"
-            !email.contains("@") -> "Email should contain @ symbol"
-            !email.contains(".") -> "Email should contain a dot (.)"
-            !isEmailValid(email) -> "Invalid email format"
+            email.isBlank() -> Constant.INVALID_EMAIL_EMPTY_ERROR
+            !email.contains("@") -> Constant.INVALID_EMAIL_ANDPARSENT_NOT_ERROR
+            !email.contains(".") -> Constant.INVALID_EMAIL_DOT_NOT_ERROR
+            !isEmailValid(email) -> Constant.INVALID_EMAIL_FORMAT_ERROR
             else -> null
         }
     }
