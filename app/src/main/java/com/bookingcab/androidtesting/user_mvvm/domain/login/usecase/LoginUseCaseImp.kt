@@ -1,5 +1,7 @@
 package com.bookingcab.androidtesting.user_mvvm.domain.login.usecase
 
+import com.bookingcab.androidtesting.user_mvvm.comman.Constant.STATUS_ERROR
+import com.bookingcab.androidtesting.user_mvvm.comman.Constant.STATUS_FAILED
 import com.bookingcab.androidtesting.user_mvvm.data.datasource.ApiResponse
 import com.bookingcab.androidtesting.user_mvvm.data.models.loginRequest.LoginRequestData
 import com.bookingcab.androidtesting.user_mvvm.data.models.loginResponse.LoginResponseData
@@ -17,10 +19,10 @@ class LoginUseCaseImp(private val loginRepository: LoginRepository): LoginUseCas
             if (response.isSuccessful) {
                 ApiResponse.Success(response.body()!!)
             } else {
-                ApiResponse.Error("Failed", Exception("Unsuccessful response"))
+                ApiResponse.Error(STATUS_FAILED, Exception("Unsuccessful response"))
             }
         } catch (e: Exception) {
-            ApiResponse.Error("Error", e)
+            ApiResponse.Error(STATUS_ERROR, e)
         }
         /*          try {
             val response = loginRepository.loginRequest(emailID,password)
@@ -37,10 +39,10 @@ class LoginUseCaseImp(private val loginRepository: LoginRepository): LoginUseCas
             if (response.isSuccessful) {
                 ApiResponse.Success(response.body()!!)
             } else {
-                ApiResponse.Error("Failed", Exception("Unsuccessful response"))
+                ApiResponse.Error("$STATUS_FAILED", Exception("Unsuccessful response"))
             }
         } catch (e: Exception) {
-            ApiResponse.Error("Error", e)
+            ApiResponse.Error("$STATUS_ERROR", e)
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.bookingcab.androidtesting.user_mvvm.domain.signup.usecase
 
+import com.bookingcab.androidtesting.user_mvvm.comman.Constant
+import com.bookingcab.androidtesting.user_mvvm.comman.Constant.STATUS_ERROR
 import com.bookingcab.androidtesting.user_mvvm.data.datasource.ApiResponse
 import com.bookingcab.androidtesting.user_mvvm.data.models.SignUpRequest.UserSignupRequestData
 import com.bookingcab.androidtesting.user_mvvm.data.models.SignUpResponse.UserSignUpResponseData
@@ -13,10 +15,10 @@ class UserSignupUseCaseImp(private val userSignupRepository: UserSignupRepositor
             if (response.isSuccessful) {
                 ApiResponse.Success(response.body()!!)
             } else {
-                ApiResponse.Error("Failed", Exception("Unsuccessful response"))
+                ApiResponse.Error(STATUS_ERROR, Exception("Unsuccessful response"))
             }
         } catch (e: Exception) {
-            ApiResponse.Error("Error", e)
+            ApiResponse.Error(STATUS_ERROR, e)
         }
     }
 }

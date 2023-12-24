@@ -35,6 +35,7 @@ class EmailValidatorTest {
         assertEquals("Invalid email format", EmailValidator.getEmailErrorMessage("test@.com"))
     }
 
+
     /*@Test
     fun nullEmailTest() {
         assertFalse(EmailValidator.isEmailValid(null))

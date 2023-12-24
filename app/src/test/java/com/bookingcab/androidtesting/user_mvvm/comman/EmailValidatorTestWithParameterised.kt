@@ -25,11 +25,11 @@ class EmailValidatorTestWithParameterised(val userEmailID: String,  val expected
         fun emailValidationData(): Any? {
             return listOf(
                 arrayOf("", false, Constant.INVALID_EMAIL_EMPTY_ERROR),
-                arrayOf("test", false, Constant.INVALID_EMAIL_ANDPARSENT_NOT_ERROR),
-                arrayOf("test", false , Constant.INVALID_EMAIL_ANDPARSENT_NOT_ERROR),
-                arrayOf("test13", false, Constant.INVALID_EMAIL_ANDPARSENT_NOT_ERROR),
+                arrayOf("test", false, Constant.INVALID_EMAIL_AMPERSAND_NOT_ERROR),
+                arrayOf("test", false , Constant.INVALID_EMAIL_AMPERSAND_NOT_ERROR),
+                arrayOf("test13", false, Constant.INVALID_EMAIL_AMPERSAND_NOT_ERROR),
                 arrayOf("test13@", false , Constant.INVALID_EMAIL_DOT_NOT_ERROR),
-                arrayOf("test13.com", false , Constant.INVALID_EMAIL_ANDPARSENT_NOT_ERROR),
+                arrayOf("test13.com", false , Constant.INVALID_EMAIL_AMPERSAND_NOT_ERROR),
                 arrayOf("test13@.", false, Constant.INVALID_EMAIL_FORMAT_ERROR),
                 arrayOf("test13@.com", false, Constant.INVALID_EMAIL_FORMAT_ERROR),
                 arrayOf("test13we@test.com", true, null),
