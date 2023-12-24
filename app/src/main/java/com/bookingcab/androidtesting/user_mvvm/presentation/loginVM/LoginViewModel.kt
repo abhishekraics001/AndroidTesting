@@ -1,10 +1,10 @@
 package com.bookingcab.androidtesting.user_mvvm.presentation.loginVM
 
-import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bookingcab.androidtesting.user_mvvm.comman.Constant
 import com.bookingcab.androidtesting.user_mvvm.comman.EmailValidator
 import com.bookingcab.androidtesting.user_mvvm.comman.PasswordValidator
 import com.bookingcab.androidtesting.user_mvvm.data.datasource.ApiResponse
@@ -94,24 +94,27 @@ class LoginViewModel(private val loginUseCase: LoginUseCase): ViewModel() {
                     when (result) {
                         is ApiResponse.Success -> {
                             _loginResponData.value = result.data.responsedata.data
-                            _loginResponseStatus.value = "Success"
+                            _loginResponseStatus.value = Constant.STATUS_SUCCESS
                             _isloading.value = false
                         }
                         is ApiResponse.Error -> {
-                            _loginResponseStatus.value =
-                                "Type: ${result.errorType}  Msg: ${result.exception.toString()}"
+                            _loginResponseStatus.value = Constant.STATUS_FAILED //"Type: ${result.errorType}  Msg: ${result.exception.toString()}"
                             _isloading.value = false
                         }
                     }
                 } catch (e: Exception) {
-                    _loginResponseStatus.value = "Type: Error  Msg: ${e.toString()}"
+                    _loginResponseStatus.value = Constant.STATUS_FAILED //"Type: Error  Msg: ${e.toString()}"
                     _isloading.value = false
                 }
             }else{
-                _loginResponseStatus.value = "Validation Error: Enter the valid user email id & password"
+                _loginResponseStatus.value = Constant.STATUS_FAILED; //"Validation Error: Enter the valid user email id & password"
+                _isloading.value = false
             }
         }
     }
+
+
+
 
 
 

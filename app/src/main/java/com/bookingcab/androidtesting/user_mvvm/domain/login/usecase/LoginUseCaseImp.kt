@@ -6,7 +6,6 @@ import com.bookingcab.androidtesting.user_mvvm.data.datasource.ApiResponse
 import com.bookingcab.androidtesting.user_mvvm.data.models.loginRequest.LoginRequestData
 import com.bookingcab.androidtesting.user_mvvm.data.models.loginResponse.LoginResponseData
 import com.bookingcab.androidtesting.user_mvvm.domain.login.repository.LoginRepository
-import retrofit2.Response
 
 class LoginUseCaseImp(private val loginRepository: LoginRepository): LoginUseCase {
 
