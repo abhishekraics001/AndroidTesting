@@ -19,4 +19,8 @@ object Constant {
     const val INVALID_PASSWORD_NUMBER_NOT_ERROR = "Password must contain at least one number"
     const val INVALID_PASSWORD_LATTER_NOT_ERROR = "Password must contain at least one letter"
     const val INVALID_PASSWORD_SYMBOL_NOT_ERROR = "Password must contain at least one symbol"
+
+    const val INVALID_PHONE_NO_EMPTY_BLANK  = "Email should not be empty"
+    const val INVALID_PHONE_NO_ERROR  = "Invalid phone number"
+    const val INVALID_PHONE_NO_LENGHTH = "Phone number should be >= to 10  or <= 13 number"
 }
