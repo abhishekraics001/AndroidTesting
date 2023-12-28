@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.bookingcab.androidtesting.user_mvvm.presentation.loginVM.LoginViewModel" />
+            type="com.app.androidtesting.user_mvvm.presentation.loginVM.LoginViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

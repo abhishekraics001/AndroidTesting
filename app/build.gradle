@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.bookingcab.androidtesting'
+    namespace 'com.app.androidtesting'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.bookingcab.androidtesting"
+        applicationId "com.app.androidtesting"
         minSdk 25
         targetSdk 34
         versionCode 1
