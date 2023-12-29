@@ -50,6 +50,8 @@
 
         <activity android:name="com.app.androidtesting.user_mvvm.presentation.profileVM.ProfilePage"/>
 
+        <activity android:name=".roomDB.UserListActivity"></activity>
+
     </application>
 
 </manifest>

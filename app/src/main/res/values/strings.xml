@@ -10,11 +10,9 @@
 
     <string name="first_fragment">
         First fragment \n
-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor.
+        Want to testing of app with different app component like below
     </string>
+
 
     <string name="second_fragment">
         Second Fragment \n

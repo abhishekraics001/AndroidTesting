@@ -45,7 +45,7 @@ class LoginViewModel(private val loginUseCase: LoginUseCase): ViewModel() {
     }
 
 
-  /*  fun loginuser(userEmailID: String, userPassword: String){
+    fun loginuser(userEmailID: String, userPassword: String){
             viewModelScope.launch {
                 try {
                     _isloading.value = true
@@ -70,7 +70,7 @@ class LoginViewModel(private val loginUseCase: LoginUseCase): ViewModel() {
             }
     }
 
-*/
+
     fun loginuserWithBody(userEmailID: String, userPassword: String){
         viewModelScope.launch{
             if(isValidCredentials()) {
@@ -79,10 +79,10 @@ class LoginViewModel(private val loginUseCase: LoginUseCase): ViewModel() {
                     val result = withContext(Dispatchers.IO) {
                         val loginRequestData = LoginRequestData(
                             user_type_id = 3,
-                            username = if (userEmailID.length > 2) userEmailID else "test@gmail.com",
-                            password = userPassword.takeIf { it.length > 2 } ?: "test@gmail.com",
-                            //username = "test@gmail.com",
-                            //password = "123456",
+                            //username = if (userEmailID.length > 2) userEmailID else "test@gmail.com",
+                            //password = userPassword.takeIf { it.length > 2 } ?: "123456",
+                            username = "test@gmail.com",
+                            password = "123456",
                             callfrom = "Android",
                             login_location = "EC2",
                             gcm_id = "56342hjgsda",

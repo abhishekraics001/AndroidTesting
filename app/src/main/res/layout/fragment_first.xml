@@ -16,20 +16,172 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:text="@string/next"
-            app:layout_constraintBottom_toTopOf="@id/textview_first"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
-            android:id="@+id/textview_first"
+            android:id="@+id/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is the 1st Fragment"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_first" />
+
+        <TextView
+            android:id="@+id/textview_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/first_fragment"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Want to check app widget or component like below"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_first" />
+            app:layout_constraintTop_toBottomOf="@id/pageTitle"
+            android:textSize="20sp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_description"
+            android:layout_margin="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Please select or Agree with below options">
+                </TextView>
+
+                <CheckBox
+                    android:id="@+id/term_Condition_Status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree to Terms and conditions"
+                    />
+
+
+                <CheckBox
+                    android:id="@+id/privacy_Policy_Status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Accepting the app privacy and policy"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Please select your Gender">
+                </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/genderRadioGroupStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tooltipText="Select your Gender">
+                        <RadioButton
+                            android:id="@+id/genderMaleRadioStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Male">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/genderFemelRadioStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Female">
+
+                        </RadioButton>
+
+
+                        <RadioButton
+                            android:id="@+id/genderTransitRadioStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Transit ">
+
+                        </RadioButton>
+                    </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select your Choice"
+                    android:layout_marginTop="20dp">
+
+                </TextView>
+
+                <Switch
+                    android:id="@+id/NotificationSwitchStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Want to Get the Notification">
+                </Switch>
+
+                <Switch
+                    android:id="@+id/AlarmSwitchStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Want to Get the Alarm" >
+                </Switch>.
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select your Active Percentage"
+                    android:layout_marginTop="20dp">
+                </TextView>
+
+
+                <SeekBar
+                    android:id="@+id/PercentageProgressStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:min="0"
+                    android:max="100"
+                    android:progress="30"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

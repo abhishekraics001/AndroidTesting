@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="userList"
+            type="com.app.androidtesting.roomDB.userlistVM.UserListData"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEmployee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            card_view:cardCornerRadius="8dp"
+            android:background="@android:color/darker_gray"
+            android:layout_margin="2dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPic"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitXY"
+                    imageUrl="@{userList.tvImageURl}"
+                    bind:layout_constraintBottom_toBottomOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvFullName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ivPic"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="4dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toEndOf="@+id/ivPic"
+                    bind:layout_constraintTop_toTopOf="parent"
+                    tools:text="Morris"
+                    app:loadCustomMrTitle="@{userList.tvName}"/>
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvFullName"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:padding="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toEndOf="@+id/ivPic"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvFullName"
+                    tools:text="morris@gmail.com"
+                    android:text="@{userList.tvEmailID}"/>
+
+
+              <TextView
+                    android:id="@+id/tvProfile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvFullName"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:padding="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toEndOf="@+id/ivPic"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvEmail"
+                    tools:text="Android : 8 Years"
+                    android:text="@{userList.profile + ` : ` + userList.yexp + ` Years Exp`}"
+                    />
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    bind:layout_constraintTop_toTopOf="parent"
+                    bind:layout_constraintBottom_toBottomOf="parent"
+                    bind:layout_constraintLeft_toRightOf="parent"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/baseline_chevron_right_24"
+                    android:layout_margin="20dp"
+                    bind:tint="@color/black">
+                </ImageView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
