@@ -7,7 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.androidtesting.databinding.UsersListViewBinding
 import com.app.androidtesting.roomDB.userlistVM.UserListAdapter
-import com.app.androidtesting.roomDB.userlistVM.UserListData
+import com.app.androidtesting.roomDB.userlistVM.UserProfileDetailsData
 import com.app.androidtesting.roomDB.userlistVM.UserListViewModel
 import kotlinx.coroutines.launch
 
@@ -16,7 +16,7 @@ class UserListActivity : AppCompatActivity() {
     lateinit var binding: UsersListViewBinding
     val viewModel : UserListViewModel by viewModels()
 
-    var userList = mutableListOf<UserListData>()
+    var userList = mutableListOf<UserProfileDetailsData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class UserListActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            var userListx = userDao.getUserList()
+            var userListx = userDao.getAllUsersList()
             userListx.forEach {
                 userList.add(it)
             }
@@ -54,7 +54,7 @@ class UserListActivity : AppCompatActivity() {
             userListAdapter.notifyDataSetChanged()
         }
 
-        viewModel.userListData.observe(this) {
+        viewModel.userListData.observe(this) { it ->
             lifecycleScope.launch {
                 it.forEach { v->
                     userDao.insertUser(v)

@@ -29,7 +29,6 @@ object CityKoinModule {
             CityListViewModel(cityListUseCase = get())
         }
 
-
     }
 
     //We can also load & inject the KOIN at runtime or dynamic

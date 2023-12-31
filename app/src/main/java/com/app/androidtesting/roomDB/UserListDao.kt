@@ -4,37 +4,58 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Update
-import com.app.androidtesting.roomDB.userlistVM.UserListData
+import com.app.androidtesting.roomDB.userlistVM.UserProfileDetailsData
 
 @Dao
 interface UserListDao {
 
-    @Query("SELECT * FROM user_data ORDER BY id ASC")
-    suspend fun getUserList(): List<UserListData>
-
+    //@Insert(onConflict = OnConflictStrategy.ABORT)
+    //@Insert(onConflict = OnConflictStrategy.REPLACE)
+    //@Insert(onConflict = OnConflictStrategy.IGNORE)
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertUser(word: UserListData)
+    suspend fun insertUser(usr: UserProfileDetailsData)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertUsers(userList: List<UserProfileDetailsData>)
+
+ /*   @Transaction
+    suspend fun insertUserList(userList: List<UserProfileDetailsData>) {
+        userList.forEach { user ->
+            deleteAllUsers()
+            insertUser(user)
+        }
+    }*/
+
+
+
+    @Query("SELECT * FROM users_profile_details ORDER BY id ASC")
+    suspend fun getAllUsersList(): List<UserProfileDetailsData>
+
+    @Query("SELECT * FROM users_profile_details WHERE id = :id ORDER BY tvName LIMIT 1")
+    suspend fun getUserByID(id: String): List<UserProfileDetailsData>
+
+
+    @Query("SELECT * FROM users_profile_details WHERE tvName LIKE :first AND yexp = :year LIMIT 1")
+    fun loadOneByNameAndReleaseYear(first: String?, year: Int): UserProfileDetailsData?
+
+
 
     @Update
-    suspend fun update(userListData: UserListData)
+    suspend fun update(userListData: UserProfileDetailsData)
 
-    @Query("DELETE FROM user_data")
+    @Query("UPDATE users_profile_details SET tvName = :userName WHERE id = :userId")
+    suspend fun updateUserName(userName: String, userId: String)
+
+    @Update
+    fun updateListOfUsers(songs: List<UserProfileDetailsData>): Int
+
+
+
+    @Query("DELETE FROM users_profile_details")
     suspend fun deleteAllUsers()
+
+    @Query("DELETE FROM users_profile_details WHERE id = :id")
+    suspend fun deleteUserByID(id: String)
 }
-
-/*
-@Dao
-interface UserListDao {
-
-    @Query("SELECT * FROM user_data ORDER BY tvName ASC")
-    fun getAlphabetizedWords(): List<UserListData>
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(word: UserListData)
-
-    @Query("DELETE FROM user_data")
-    suspend fun deleteAll()
-
-}
-*/

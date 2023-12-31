@@ -8,7 +8,7 @@ import com.app.androidtesting.R
 import com.app.androidtesting.databinding.UsersListRowItemsBinding
 
 
-class UserListAdapter(private val itemList: List<UserListData>) : RecyclerView.Adapter<UserListAdapter.MyViewHolder>() {
+class UserListAdapter(private val itemList: List<UserProfileDetailsData>) : RecyclerView.Adapter<UserListAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -27,7 +27,7 @@ class UserListAdapter(private val itemList: List<UserListData>) : RecyclerView.A
 
     inner class MyViewHolder(private val binding: UsersListRowItemsBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(itemViewModel: UserListData) {
+        fun bind(itemViewModel: UserProfileDetailsData) {
             binding.userList = itemViewModel
             binding.executePendingBindings()
         }
