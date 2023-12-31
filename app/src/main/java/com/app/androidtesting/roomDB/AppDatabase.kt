@@ -46,35 +46,6 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
 
-
-        @Volatile
-        private  var instance2: AppDatabase? = null
-        fun getInstance2(context: Context): AppDatabase {
-            if(instance2 == null) {
-                instance2 = buildDatabase2(context)
-            }
-            return instance2!!;
-        }
-
-        private fun buildDatabase2(context: Context): AppDatabase {
-            return Room.databaseBuilder(
-                context.applicationContext,
-                AppDatabase::class.java,
-                DATABASE_NAME,
-            )
-                .addMigrations(MIGRATION_1_2, MIGRATION_1_2) //Thi code is for migration
-                .fallbackToDestructiveMigration() // Use this only during development
-                .build()
-        }
-
-
-
-        val MIGRATION_1_2: Migration = object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                // Add the new column
-                database.execSQL("ALTER TABLE user_data ADD COLUMN newColumn TEXT")
-            }
-        }
     }
 
 

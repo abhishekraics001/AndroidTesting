@@ -15,7 +15,7 @@ interface UserListDao {
     //@Insert(onConflict = OnConflictStrategy.REPLACE)
     //@Insert(onConflict = OnConflictStrategy.IGNORE)
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertUser(usr: UserProfileDetailsData)
+    suspend fun insertUser(usr: UserProfileDetailsData): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUsers(userList: List<UserProfileDetailsData>)
@@ -43,10 +43,10 @@ interface UserListDao {
 
 
     @Update
-    suspend fun update(userListData: UserProfileDetailsData)
+    suspend fun update(userListData: UserProfileDetailsData): Int
 
     @Query("UPDATE users_profile_details SET tvName = :userName WHERE id = :userId")
-    suspend fun updateUserName(userName: String, userId: String)
+    suspend fun updateUserName(userName: String, userId: String) : Int
 
     @Update
     fun updateListOfUsers(songs: List<UserProfileDetailsData>): Int
@@ -54,7 +54,7 @@ interface UserListDao {
 
 
     @Query("DELETE FROM users_profile_details")
-    suspend fun deleteAllUsers()
+    suspend fun deleteAllUsers() : Int
 
     @Query("DELETE FROM users_profile_details WHERE id = :id")
     suspend fun deleteUserByID(id: String)

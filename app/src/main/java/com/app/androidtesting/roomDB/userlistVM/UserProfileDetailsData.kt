@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "users_profile_details")
 class UserProfileDetailsData(
-        @PrimaryKey(autoGenerate = true) val id: Int = 0,
+        @PrimaryKey(autoGenerate = true) val id: Int = 1,
         @ColumnInfo(name = "tvName") val tvName: String,
         @ColumnInfo(name = "tvEmailID") val tvEmailID: String,
         @ColumnInfo(name = "tvImageURl") val tvImageURl: String,

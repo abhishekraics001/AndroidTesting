@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
             loginUser(emailsID = emilID, password = password);
         }
 
+
         binding.signupButton.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
         }
