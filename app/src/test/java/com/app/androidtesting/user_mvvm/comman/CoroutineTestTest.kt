@@ -89,7 +89,7 @@ class CoroutineTestTest {
         // val coroutineTest = CoroutineTest()
 
         // When
-        val result = coroutineTest.getSumOfTwoNoMainThread("hgsd".toInt(), 4)
+        val result = coroutineTest.getSumOfTwoNoMainThread("23".toInt(), 4)
 
         // Then
         assertNotEquals(0, result)
