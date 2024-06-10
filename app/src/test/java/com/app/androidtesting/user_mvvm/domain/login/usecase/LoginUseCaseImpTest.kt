@@ -266,7 +266,7 @@ class LoginUseCaseImpTest {
         val lrData = LoginResponseData(response)
         //Mockito.`when`(loginRepo.loginRequest(loginRequestData)).thenReturn(Response.error(402, Exception("IOException")))
         //Mockito.`when`(loginRepo.loginRequest(loginRequestData)).thenThrow(Exception("Simulated error"))
-        whenever(loginRepo.loginRequest(loginRequestData)).thenThrow(Exception("Simulated error"))
+        //whenever(loginRepo.loginRequest(loginRequestData)).thenThrow(Exception("Simulated error"))
 
 
         //When
