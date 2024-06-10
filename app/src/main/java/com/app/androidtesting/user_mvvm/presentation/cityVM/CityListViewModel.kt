@@ -12,7 +12,7 @@ class CityListViewModel(private val cityListUseCase: CityListUseCase) : ViewMode
     private val _items = MutableLiveData<List<Data>?>()
     val cityListData: MutableLiveData<List<Data>?> get() = _items
 
-
+//this is testing checkout
     fun getCityList() {
         viewModelScope.launch {
             val itemDataModels = cityListUseCase.execute()
