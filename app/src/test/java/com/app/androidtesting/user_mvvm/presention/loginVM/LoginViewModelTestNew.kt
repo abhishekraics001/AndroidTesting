@@ -80,7 +80,7 @@ class LoginViewModelTestNew {
 
 
         // Given
-        viewModel.userEmailID.value = "test@gmail.com"
+        viewModel.userEmailID.value = "test@gmailxp.com"
         viewModel.userPassword.value = "123456"
 
         // Mock the execute function in loginUseCase
