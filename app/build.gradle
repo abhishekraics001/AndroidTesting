@@ -18,8 +18,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            keyAlias 'Raics001' // Replace with your keystore alias
+            keyPassword 'Raics001' // Replace with your keystore password
+            storeFile file('app/keystorefile.jks') // Replace with the path to your keystore file
+            storePassword 'Raics001' // Replace with your keystore password
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
