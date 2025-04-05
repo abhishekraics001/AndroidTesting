@@ -4,7 +4,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
-
 android {
     namespace 'com.app.androidtesting'
     compileSdk 34
